@@ -26,18 +26,20 @@ public class BowlingGameScorerTest {
 	
 	@Test
 	public void testRollBallScoreZeroForAllFrames() {
-		for(int i=0; i< 20; i++) {
-			bowlingGameScorer.roll(0);		
-		}
+		rollTheBall(0, 20);
 		assertEquals(0, bowlingGameScorer.score());
 	}
-	
+
 	@Test
 	public void testRollBallScoreOnesForAllFrames() {
-		for(int i=0; i< 20; i++) {
-			bowlingGameScorer.roll(1);		
-		}
+		rollTheBall(1, 20);
 		assertEquals(20, bowlingGameScorer.score());
+	}
+	
+	private void rollTheBall(int pinsDown, int totalRolls) {
+		for(int i=0; i< totalRolls; i++) {
+			bowlingGameScorer.roll(pinsDown);		
+		}
 	}
 	
 }

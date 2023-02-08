@@ -4,10 +4,6 @@ public class BowlingGameScorer {
 	
 	private int score;
 	
-	public int getScore() {
-		return score;
-	}
-
 	public BowlingGameScorer() {
 		score = 0;
 	}
