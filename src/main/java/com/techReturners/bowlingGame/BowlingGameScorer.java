@@ -6,5 +6,9 @@ public class BowlingGameScorer {
 		
 	}
 
+	public int score() {
+		return 0;
+	}
+
 	 
 }
