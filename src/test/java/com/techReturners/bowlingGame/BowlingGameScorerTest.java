@@ -14,17 +14,6 @@ public class BowlingGameScorerTest {
 	}
 	
 	@Test
-	public void testRollBall() {
-		bowlingGameScorer.roll(0);
-	}
-	
-	@Test
-	public void testRollBallScoreZero() {
-		bowlingGameScorer.roll(0);
-		assertEquals(0, bowlingGameScorer.score());
-	}
-	
-	@Test
 	public void testRollBallScoreZeroForAllFrames() {
 		rollTheBall(0, 20);
 		assertEquals(0, bowlingGameScorer.score());
