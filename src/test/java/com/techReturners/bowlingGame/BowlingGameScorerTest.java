@@ -19,4 +19,13 @@ public class BowlingGameScorerTest {
 		assertEquals(0, bowlingGameScorer.score());
 	}
 	
+	@Test
+	public void testRollBallScoreZeroForAllFrames() {
+		BowlingGameScorer bowlingGameScorer = new BowlingGameScorer();
+		for(int i=0; i< 20; i++) {
+			bowlingGameScorer.roll(0);		
+		}
+		assertEquals(0, bowlingGameScorer.score());
+	}
+	
 }
