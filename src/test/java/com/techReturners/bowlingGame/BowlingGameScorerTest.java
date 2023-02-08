@@ -37,12 +37,21 @@ public class BowlingGameScorerTest {
 	}
 	
 	@Test
-	public void testRollBallScoreIfSpareHappened() {
+	public void testRollBallScoreIfSpareFollowedByFiveHappened() {
 		bowlingGameScorer.roll(4);
 		bowlingGameScorer.roll(6);
-		bowlingGameScorer.roll(3);
+		bowlingGameScorer.roll(5);
 		rollTheBall(0, 17);
-		assertEquals(16, bowlingGameScorer.score());
+		assertEquals(20, bowlingGameScorer.score());
+	}
+	
+	@Test
+	public void testRollBallScoreIfStrikeFollowedBySixAndThreeHappened() {
+		bowlingGameScorer.roll(10);
+		bowlingGameScorer.roll(6);
+		bowlingGameScorer.roll(3);
+		rollTheBall(0, 16);
+		assertEquals(28, bowlingGameScorer.score());
 	}
 	
 	private void rollTheBall(int pinsDown, int totalRolls) {
