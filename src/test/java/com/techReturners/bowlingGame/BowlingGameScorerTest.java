@@ -54,6 +54,12 @@ public class BowlingGameScorerTest {
 		assertEquals(28, bowlingGameScorer.score());
 	}
 	
+	@Test
+	public void testAllStrikes() {
+		rollTheBall(10, 12);
+		assertEquals(300, bowlingGameScorer.score());
+	}
+	
 	private void rollTheBall(int pinsDown, int totalRolls) {
 		for(int i=0; i< totalRolls; i++) {
 			bowlingGameScorer.roll(pinsDown);		
