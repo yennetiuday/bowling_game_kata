@@ -16,11 +16,27 @@ public class BowlingGameScorer {
 	public int score() {
 		int score = 0;
 		int currentRoll = 0;
-		for(int CurrentFrame = 0; CurrentFrame<10; CurrentFrame++) {
-			score += rolls[currentRoll] + rolls[currentRoll+1];
+		for(int currentFrame = 0; currentFrame<10; currentFrame++) {
+			if (isSpare(currentRoll)) {
+				score += getSpareScore(currentRoll);
+			} else {
+				score += getStandardScore(currentRoll);
+			}
 			currentRoll += 2;
 		}
 		return score;
+	}
+
+	private int getSpareScore(int currentRoll) {
+		return rolls[currentRoll] + rolls[currentRoll+1] + rolls[currentRoll+2];
+	}
+
+	private int getStandardScore(int currentRoll) {
+		return rolls[currentRoll] + rolls[currentRoll+1];
+	}
+
+	private boolean isSpare(int currentRoll) {
+		return getStandardScore(currentRoll) == 10;
 	}
 
 	 

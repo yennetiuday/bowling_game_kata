@@ -36,6 +36,15 @@ public class BowlingGameScorerTest {
 		assertEquals(20, bowlingGameScorer.score());
 	}
 	
+	@Test
+	public void testRollBallScoreIfSpareHappened() {
+		bowlingGameScorer.roll(4);
+		bowlingGameScorer.roll(6);
+		bowlingGameScorer.roll(3);
+		rollTheBall(0, 17);
+		assertEquals(16, bowlingGameScorer.score());
+	}
+	
 	private void rollTheBall(int pinsDown, int totalRolls) {
 		for(int i=0; i< totalRolls; i++) {
 			bowlingGameScorer.roll(pinsDown);		
