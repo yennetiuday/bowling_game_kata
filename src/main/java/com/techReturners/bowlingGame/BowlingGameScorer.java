@@ -17,7 +17,7 @@ public class BowlingGameScorer {
 		int score = 0;
 		int currentRoll = 0;
 		for(int currentFrame = 0; currentFrame<10; currentFrame++) {
-			if (rolls[currentRoll] == 10) {
+			if (isStrike(currentRoll)) {
 				score += getStrikeScore(currentRoll);
 				currentRoll++;
 			}
@@ -32,8 +32,16 @@ public class BowlingGameScorer {
 		return score;
 	}
 
+	private boolean isStrike(int currentRoll) {
+		return rolls[currentRoll] == 10;
+	}
+
 	private int getStrikeScore(int currentRoll) {
 		return 10 + rolls[currentRoll+1] + rolls[currentRoll+2];
+	}
+
+	private boolean isSpare(int currentRoll) {
+		return getStandardScore(currentRoll) == 10;
 	}
 
 	private int getSpareScore(int currentRoll) {
@@ -42,10 +50,6 @@ public class BowlingGameScorer {
 
 	private int getStandardScore(int currentRoll) {
 		return rolls[currentRoll] + rolls[currentRoll+1];
-	}
-
-	private boolean isSpare(int currentRoll) {
-		return getStandardScore(currentRoll) == 10;
 	}
 	 
 }
