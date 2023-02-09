@@ -6,6 +6,7 @@ public class BowlingGameScorer {
 	private int[] rolls;
 	
 	public BowlingGameScorer() {
+		roll = 0;
 		rolls = new int[21];
 	}
 
