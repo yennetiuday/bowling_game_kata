@@ -49,6 +49,21 @@ public class BowlingGameScorerTest {
 		assertEquals(300, bowlingGameScorer.score());
 	}
 	
+	@Test
+	public void testFirstRollNineAndSecondRollZero() {
+		for(int i = 0; i< 10; i++) {
+			bowlingGameScorer.roll(9);
+			bowlingGameScorer.roll(0);
+		}
+		assertEquals(90, bowlingGameScorer.score());
+	}
+	
+	@Test
+	public void testAllSpareswithFirstRollFiveAndSecondRollFiveAndLastRollFive() {
+		rollTheBall(5, 21);
+		assertEquals(150, bowlingGameScorer.score());
+	}
+	
 	private void rollTheBall(int pinsDown, int totalRolls) {
 		for(int i=0; i< totalRolls; i++) {
 			bowlingGameScorer.roll(pinsDown);		
