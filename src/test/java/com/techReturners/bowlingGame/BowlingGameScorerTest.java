@@ -50,6 +50,12 @@ public class BowlingGameScorerTest {
 	}
 	
 	@Test
+	public void testAllStrikesButLastRollZero() {
+		rollTheBall(10, 11);
+		assertEquals(290, bowlingGameScorer.score());
+	}
+	
+	@Test
 	public void testAllZerosAndLAstFrameAllStrikes() {
 		rollTheBall(0, 18);
 		rollTheBall(10, 3);
